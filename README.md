@@ -34,15 +34,15 @@ This project aims to develop a web application where users can log in with their
 |       |        | - user_home.html
 |       | - __init__.py
 |       | - user.py -- It's a Blueprint for user-related routes and logic.
-| - login:
+| - home:
 |       | - static: -- Contains static files like CSS and images.
 |       | - templates: -- Contains HTML templates for different pages.
-|       |        | - login_register_base.html
+|       |        | - home_base.html
 |       |        | - login.html
 |       |        | - register.html
+|       |        | - home.html
 |       | - __init__.py
-|       | - login.py -- It's a Blueprint for login-related routes and logic
-|       | - register.py -- It's a Blueprint for register-related routes and logic
+|       | - home.py -- It's a Blueprint for home routes and logic
 | - model.py -- Defines SQLAlchemy data models.
 | - main.py -- The main Flask application file containing routes and logic.
 
