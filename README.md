@@ -41,8 +41,8 @@ This project aims to develop a web application where users can log in with their
 |       |        | - login.html
 |       |        | - register.html
 |       | - __init__.py
-|       | - login.html -- It's a Blueprint for login-related routes and logic
-|       | - register.html -- It's a Blueprint for register-related routes and logic
+|       | - login.py -- It's a Blueprint for login-related routes and logic
+|       | - register.py -- It's a Blueprint for register-related routes and logic
 | - model.py -- Defines SQLAlchemy data models.
 | - main.py -- The main Flask application file containing routes and logic.
 
