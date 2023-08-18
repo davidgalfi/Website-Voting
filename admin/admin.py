@@ -9,3 +9,7 @@ admin = Blueprint("admin", __name__, template_folder="templates", static_folder=
 @admin.route("/")
 def admin_home():
     return render_template("admin_home.html")
+
+@admin.route("/users")
+def users():
+    return render_template("admin_users.html")

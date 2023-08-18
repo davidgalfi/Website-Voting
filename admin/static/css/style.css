@@ -6,13 +6,32 @@
     color: #073241;
 }
 
+h1 {
+    color: #073241;
+    padding: 10px;
+    background-color: #b3ecff;
+}
+
+.font-color{
+    color: #073241;
+}
+
+.border {
+    border: 3px solid #073241;
+    padding: 10px;
+    background-color: #b3ecff;
+}
+
+#border-fix {
+    border-collapse: separate !important;
+}
+
 .overlay-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 3rem;
-    color: #073241;
-    border: 2px solid #073241;
+    border: 3px solid white;
     padding: 10px;
 }

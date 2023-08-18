@@ -1,0 +1,29 @@
+{% extends 'admin_base.html' %}
+{% block title%}All user{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="column">
+            <div class="row mt-5">
+                <h1 class="text-center"> All user</h1>
+            </div>
+            <div class="row mt-5 border">
+                <div class="col text-start font-color">ID:</div>
+                <div class="col text-start font-color">Username:</div>
+                <div class="col text-start font-color">Email:</div>
+                <div class="col text-start font-color">          </div>
+                <div class="row ms-1 mt-4">
+                    <div class="col text-start font-color">'01'</div>
+                    <div class="col text-start font-color">'David'</div>
+                    <div class="col text-start font-color">'David@email.com'</div>
+                    <div class="col text-start font-color"><a class="btn btn-danger" href="#" role="button">Delete</a></div>
+                </div>
+                <div class="row ms-1 mt-3">
+                    <div class="col text-start font-color">'02'</div>
+                    <div class="col text-start font-color">'Jack'</div>
+                    <div class="col text-start font-color">'Jack@email.com'</div>
+                    <div class="col text-start font-color"><a class="btn btn-danger" href="#" role="button">Delete</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
