@@ -26,7 +26,8 @@ def login():
         print(usr_password_get)
 
         if usr_name == usr_name_get and usr_password == usr_password_get:
-            return redirect(url_for("usr.user_home", username=usr_name))
+            return redirect(url_for("usr.user_home", username=usr_name,
+                                    password=usr_password, email=session.get("usr_email")))
         else:
             return render_template("login.html")
     else:
@@ -47,3 +48,11 @@ def register():
         return redirect(url_for("home.login", user=usr_name))
     else:
         return render_template("register.html")
+
+
+@home.route("/logout/<username>/<password>/<email>")
+def logout(username, password, email):
+    session.pop(username, None)
+    session.pop(password, None)
+    session.pop(email, None)
+    return redirect(url_for("home.main_home"))
