@@ -10,7 +10,7 @@ app = Flask(__name__)
 app.register_blueprint(usr, url_prefix="/user")
 app.register_blueprint(home, url_prefix="/home")
 app.register_blueprint(admin, url_prefix="/admin")
-
+app.secret_key = "#123&321#"
 
 # Main route redirect to the home page
 @app.route("/")

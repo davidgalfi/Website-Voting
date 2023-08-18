@@ -5,7 +5,7 @@ usr = Blueprint("usr", __name__, template_folder="templates", static_folder="sta
 
 
 # Define the user_home route
-@usr.route("/user_home")
-@usr.route("/")
-def user_home():
-    return render_template("user_home.html")
+@usr.route("/user_home/<username>")
+@usr.route("/<username>")
+def user_home(username):
+    return render_template("user_home.html", username=username)
