@@ -1,0 +1,34 @@
+{% extends 'user_base.html' %}
+{% block title%}Profile page{% endblock %}
+{% block content1 %}
+    <h1>Welcome 'user'!</h1>
+    <form>
+        <div class="row">
+            <label for="email-input" class="form-label">Change your email address:</label>
+            <input type="email" class="form-control" id="email-input">
+        </div>
+        <div class="row mt-1">
+            <label for="password-input" class="form-label">Password:</label>
+            <input type="password" class="form-control" id="password-input">
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Change email</button>
+    </form>
+{% endblock %}
+{% block content2 %}
+    <h3>'Voting for something'</h3>
+    <form>
+        <label class="form-label">Choose one:</label>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="vote" id="vote1">
+            <label class="form-check-label" for="vote1">'Option one'</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="vote" id="vote2">
+            <label class="form-check-label" for="vote1">'Option two'</label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="vote" id="vote3">
+            <label class="form-check-label" for="vote1">'Option three'</label>
+        </div>
+    </form>
+{% endblock %}

@@ -1,11 +1,11 @@
 from flask import Blueprint, render_template
 
 # Creating the user blueprint
-usr = Blueprint("usr", __name__, template_folder="templates")
+usr = Blueprint("usr", __name__, template_folder="templates", static_folder="static")
 
 
-# Define the home route
-@usr.route("/main_home")
+# Define the user_home route
+@usr.route("/user_home")
 @usr.route("/")
 def user_home():
     return render_template("user_home.html")
