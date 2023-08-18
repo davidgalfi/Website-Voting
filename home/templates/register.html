@@ -1,0 +1,30 @@
+{% extends 'home_base.html' %}
+{% block title%}Home{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="col"></div>
+        <div class="col justify-content-md-center">
+            <h1>Register</h1>
+            <form>
+              <div class="row">
+                <label for="username-input" class="form-label">User name</label>
+                <input type="text" class="form-control" id="username-input">
+              </div>
+              <div class="row">
+                <label for="email-input" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email-input">
+              </div>
+              <div class="row">
+                <label for="password-input" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password-input">
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="checkbox">
+                <label class="form-check-label" for="checkbox">Check me out</label>
+              </div>
+              <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+{% endblock %}
