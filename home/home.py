@@ -3,6 +3,8 @@ from flask import Blueprint, render_template, request, redirect, url_for, sessio
 # Creating the home blueprint
 home = Blueprint("home", __name__, template_folder="templates", static_folder="static")
 
+ADMIN_USERNAME = "admin"
+ADMIN_PASSWORD = "admin"
 
 # Define the home route
 @home.route("/main_home")
@@ -14,8 +16,12 @@ def main_home():
 @home.route("/login", methods=["POST", "GET"])
 def login():
     if request.method == "POST":
+
         usr_name_get = request.form["usr_name"]
         usr_password_get = request.form["usr_password"]
+
+        if ADMIN_USERNAME == usr_name_get and ADMIN_PASSWORD == usr_password_get:
+            return redirect(url_for("admin.admin_home"))
 
         usr_name = session.get("usr_name")
         usr_password = session.get("usr_password")
