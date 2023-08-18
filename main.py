@@ -2,6 +2,7 @@ from flask import Flask, redirect, url_for, render_template
 from user.user import usr
 from home.home import home
 from admin.admin import admin
+from module import db
 
 # Create the Flask web framework by create a Flask instance
 app = Flask(__name__)
@@ -12,6 +13,7 @@ app.register_blueprint(home, url_prefix="/home")
 app.register_blueprint(admin, url_prefix="/admin")
 app.secret_key = "#123&321#"
 
+
 # Main route redirect to the home page
 @app.route("/")
 def home():
@@ -20,4 +22,6 @@ def home():
 
 # Starting the server
 if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()
     app.run(debug=True)
