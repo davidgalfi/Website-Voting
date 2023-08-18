@@ -2,6 +2,10 @@
    background-color: #ebfaff;
 }
 
+.active {
+    color: #FFF
+}
+
 .navbar-link-color {
     color: #073241;
 }
