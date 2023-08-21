@@ -12,14 +12,14 @@ ADMIN_PASSWORD = "admin"
 @home.route("/main_home")
 @home.route("/")
 def main_home():
-    return render_template("home.html")
+    return render_template("home.html", user_active=session.get("usr_active"))
 
 
 @home.route("/login", methods=["POST", "GET"])
 def login():
 
     if "usr_id" in session:
-        print("Done")
+        session["usr_active"] = True
         return redirect(url_for("usr.user_home", user_id=session.get("usr_id")))
 
     if request.method == "POST":
@@ -29,10 +29,16 @@ def login():
 
         _usr = Users.query.filter_by(name=usr_name_get, password=usr_password_get).first()
 
+        session["usr_name"] = _usr.name
+        session["usr_password"] = _usr.password
+        session["usr_email"] = _usr.email
+        session["usr_id"] = _usr._id
+
         if ADMIN_USERNAME == usr_name_get and ADMIN_PASSWORD == usr_password_get:
             return redirect(url_for("admin.admin_home"))
 
         if _usr:
+            session["usr_active"] = True
             return redirect(url_for("usr.user_home", user_id=_usr._id))
         else:
             return render_template("login.html")
@@ -67,6 +73,7 @@ def register():
 
 @home.route("/logout")
 def logout():
+    session.pop("usr_active", None)
     session.pop("usr_name", None)
     session.pop("usr_password", None)
     session.pop("usr_email", None)

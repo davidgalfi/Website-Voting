@@ -16,12 +16,18 @@
                     <li class="nav-item ms-1">
                       <a class="nav-link {% block active_home %}{% endblock %}" href="/home/">Home</a>
                     </li>
-                    <li class="nav-item ms-5">
-                      <a class="nav-link {% block active_login %}{% endblock %}" href="/home/login">Login</a>
-                    </li>
-                    <li class="nav-item ms-5">
-                      <a class="nav-link {% block active_register %}{% endblock %}" href="/home/register">Register</a>
-                    </li>
+                    {% if user_active %}
+                        <li class="nav-item ms-5">
+                            <a class="nav-link" href="/home/login">Profile page</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item ms-5">
+                            <a class="nav-link {% block active_login %}{% endblock %}" href="/home/login">Login</a>
+                        </li>
+                        <li class="nav-item ms-5">
+                            <a class="nav-link {% block active_register %}{% endblock %}" href="/home/register">Register</a>
+                        </li>
+                    {% endif %}
                   </ul>
             </div>
             </div>

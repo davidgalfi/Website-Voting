@@ -28,3 +28,4 @@ class Votes(db.Model):
         self.vote_choice_first = vote_choice_first
         self.vote_choice_second = vote_choice_second
         self.vote_choice_third = vote_choice_third
+

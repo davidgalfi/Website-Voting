@@ -4,6 +4,8 @@ from home.home import home
 from admin.admin import admin
 from module import db
 
+user_active = False
+
 # Create the Flask web framework by create a Flask instance
 app = Flask(__name__)
 
