@@ -59,7 +59,7 @@ def register():
 
 
 @home.route("/logout")
-def logout(username, password, email):
+def logout():
     session.pop("usr_name", None)
     session.pop("usr_password", None)
     session.pop("usr_email", None)
