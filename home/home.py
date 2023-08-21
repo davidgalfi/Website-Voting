@@ -28,7 +28,7 @@ def login():
         _usr = Users.query.filter_by(name=usr_name_get, password=usr_password_get).first()
 
         if _usr:
-            return redirect(url_for("usr.user_home", user_id=_usr.id))
+            return redirect(url_for("usr.user_home", user_id=_usr._id))
         else:
             return render_template("login.html")
     else:
@@ -50,7 +50,7 @@ def register():
         session["usr_password"] = usr_password
         session["usr_email"] = usr_email
 
-        db.session.add(Users(usr_name, usr_password, usr_email))
+        db.session.add(Users(name=usr_name, password=usr_password, email=usr_email))
         db.session.commit()
 
         return redirect(url_for("home.login"))

@@ -11,4 +11,4 @@ usr = Blueprint("usr", __name__, template_folder="templates", static_folder="sta
 def user_home():
     user_id = request.args.get("user_id")
     user = Users.query.get(user_id)
-    return render_template("user_home.html", email=user.email)
+    return render_template("user_home.html", username=user.name)

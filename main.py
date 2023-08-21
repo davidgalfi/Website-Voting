@@ -13,6 +13,10 @@ app.register_blueprint(home, url_prefix="/home")
 app.register_blueprint(admin, url_prefix="/admin")
 app.secret_key = "#123&321#"
 
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.sqlite3'
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+db.init_app(app)
+
 
 # Main route redirect to the home page
 @app.route("/")
