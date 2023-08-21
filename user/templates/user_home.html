@@ -1,20 +1,21 @@
 {% extends 'user_base.html' %}
 {% block title%}Profile page{% endblock %}
 {% block content1 %}
-    <h1>Welcome {{username}}!</h1>
-    <form>
-        <div class="row">
+    <h1 class="ms-2">Welcome {{username}}!</h1>
+    <form action="#">
+        <div class="row ms-2">
             <label for="email-input" class="form-label">Change your email address:</label>
             <input type="email" class="form-control" id="email-input">
         </div>
-        <div class="row mt-1">
+        <div class="row mt-1 ms-2">
             <label for="password-input" class="form-label">Password:</label>
             <input type="password" class="form-control" id="password-input">
         </div>
-        <button type="submit" class="btn btn-primary mt-3">Change email</button>
+        <button type="submit" class="btn btn-primary mt-3 ms-2">Change email</button>
     </form>
-    <div class="container mt-2">
-        <a class="btn btn-danger" href="/home/logout" role="button">Log out</a>
+    <div class="container mt-5 col ">
+        <a class="btn btn-warning" href="/home/logout" role="button">Log out</a>
+        <a class="btn btn-danger" href="/home/delete" role="button">Delete profile</a>
     </div>
 {% endblock %}
 {% block content2 %}

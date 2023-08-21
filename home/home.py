@@ -31,12 +31,13 @@ def login():
 
         _usr = Users.query.filter_by(name=usr_name_get, password=usr_password_get).first()
 
-        session["usr_name"] = _usr.name
-        session["usr_password"] = _usr.password
-        session["usr_email"] = _usr.email
-        session["usr_id"] = _usr._id
-
         if _usr:
+
+            session["usr_name"] = _usr.name
+            session["usr_password"] = _usr.password
+            session["usr_email"] = _usr.email
+            session["usr_id"] = _usr._id
+
             session["usr_active"] = True
             return redirect(url_for("usr.user_home", user_id=_usr._id))
         else:
@@ -78,3 +79,17 @@ def logout():
     session.pop("usr_email", None)
     session.pop("usr_id", None)
     return redirect(url_for("home.main_home"))
+
+@home.route("/delete")
+def delete():
+    if "usr_id" in session:
+        Users.query.filter_by(_id=session.get("usr_id")).delete()
+        db.session.commit()
+        session.pop("usr_active", None)
+        session.pop("usr_name", None)
+        session.pop("usr_password", None)
+        session.pop("usr_email", None)
+        session.pop("usr_id", None)
+        return redirect(url_for("home.login"))
+    else:
+        return redirect(url_for("home.main_home"))
