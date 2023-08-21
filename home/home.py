@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for, session
-from module import Users, db
+from model import Users, db
 
 # Creating the home blueprint
 home = Blueprint("home", __name__, template_folder="templates", static_folder="static")
@@ -80,6 +80,7 @@ def logout():
     session.pop("usr_id", None)
     return redirect(url_for("home.main_home"))
 
+
 @home.route("/delete")
 def delete():
     if "usr_id" in session:
@@ -93,3 +94,10 @@ def delete():
         return redirect(url_for("home.login"))
     else:
         return redirect(url_for("home.main_home"))
+
+
+@home.route("/admin_delete/<usr_id>")
+def admin_delete(usr_id):
+    Users.query.filter_by(_id=usr_id).delete()
+    db.session.commit()
+    return redirect(url_for("admin.users"))

@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request
-from module import Users, db
+from model import Users, db
 
 # Creating the user blueprint
 usr = Blueprint("usr", __name__, template_folder="templates", static_folder="static")

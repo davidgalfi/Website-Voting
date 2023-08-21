@@ -2,7 +2,7 @@ from flask import Flask, redirect, url_for, render_template
 from user.user import usr
 from home.home import home
 from admin.admin import admin
-from module import db
+from model import db
 
 user_active = False
 

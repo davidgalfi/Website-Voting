@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from model import Users, db
 
 # Creating the admin blueprint
 admin = Blueprint("admin", __name__, template_folder="templates", static_folder="static")
@@ -13,7 +14,8 @@ def admin_home():
 
 @admin.route("/users")
 def users():
-    return render_template("admin_users.html")
+    all_user = Users.query.all()
+    return render_template("admin_users.html", all_user=all_user)
 
 
 @admin.route("/voting")
