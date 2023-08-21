@@ -17,15 +17,20 @@ def main_home():
 
 @home.route("/login", methods=["POST", "GET"])
 def login():
+
+    if "usr_id" in session:
+        print("Done")
+        return redirect(url_for("usr.user_home", user_id=session.get("usr_id")))
+
     if request.method == "POST":
 
         usr_name_get = request.form["usr_name"]
         usr_password_get = request.form["usr_password"]
 
+        _usr = Users.query.filter_by(name=usr_name_get, password=usr_password_get).first()
+
         if ADMIN_USERNAME == usr_name_get and ADMIN_PASSWORD == usr_password_get:
             return redirect(url_for("admin.admin_home"))
-
-        _usr = Users.query.filter_by(name=usr_name_get, password=usr_password_get).first()
 
         if _usr:
             return redirect(url_for("usr.user_home", user_id=_usr._id))
@@ -53,6 +58,8 @@ def register():
         db.session.add(Users(name=usr_name, password=usr_password, email=usr_email))
         db.session.commit()
 
+        session["usr_id"] = Users.query.filter_by(email=usr_email).first()._id
+
         return redirect(url_for("home.login"))
     else:
         return render_template("register.html")
@@ -63,4 +70,5 @@ def logout():
     session.pop("usr_name", None)
     session.pop("usr_password", None)
     session.pop("usr_email", None)
+    session.pop("usr_id", None)
     return redirect(url_for("home.main_home"))
